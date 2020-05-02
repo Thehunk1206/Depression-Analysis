@@ -1,12 +1,7 @@
-import random
-import time
-
 import speech_recognition as sr
 
 
 def recognize_speech_from_mic(recognizer, microphone):
-
-    # check that recognizer and microphone arguments are appropriate type
     if not isinstance(recognizer, sr.Recognizer):
         raise TypeError("`recognizer` must be `Recognizer` instance")
 
@@ -16,7 +11,7 @@ def recognize_speech_from_mic(recognizer, microphone):
     with microphone as source:
         recognizer.adjust_for_ambient_noise(source)
         audio = recognizer.listen(source)
-        
+
     response = {
         "success": True,
         "error": None,

@@ -37,13 +37,10 @@ while True:
         img = image.img_to_array(roi_gray)
         img = np.expand_dims(img,axis=0)
         img/=255
-
         pred = model.predict(img)
         emotion = classes[np.argmax(pred[0])]
         cv2.putText(flipImage,emotion,(x,y),cv2.FONT_HERSHEY_SIMPLEX,1,(0,255,0),2)
         print(emotion)
-
-
 
 
     #print("Detected {0} faces!".format(len(faces)))
