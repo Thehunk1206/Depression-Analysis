@@ -6,8 +6,8 @@ import cv2
 
 # load text and emotion model
 def load_text_model():
-    model = load_model("../assets/sentiment_classifier_CNN.h5")
-    return model
+    text_model = load_model("../assets/sentiment_classifier_CNN.h5")
+    return text_model
 
 
 def load_emotion_model():

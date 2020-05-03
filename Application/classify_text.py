@@ -5,21 +5,21 @@ import numpy as np
 
 import time
 
+
 def decode_sentiment(score):
     return "NEGATIVE" if score < 0.5 else "POSITIVE"
 
-def predict(text,model,tokenizer):
-    
-    start_at = time.time()
+
+def predict_sentiment(text, model, tokenizer):
     # Tokenize text
-    x_test = pad_sequences(tokenizer.texts_to_sequences([text]), maxlen=300)
+    x_text = pad_sequences(tokenizer.texts_to_sequences([text]), maxlen=300)
     # Predict
-    out_put = model.predict([x_test])[0]
+    out_put = model.predict([x_text])[0]
     # Decode sentiment
     sentiment = decode_sentiment(out_put)
 
     return sentiment
-    #return {"label": label, "score": float(out_put),"time_taken": float((time.time())-start_at)}  
+
 
 '''
 def speech_to_sentiment():
@@ -42,5 +42,3 @@ def speech_to_sentiment():
         else:
             pass
 '''
-
-    

@@ -2,6 +2,8 @@ import speech_recognition as sr
 
 
 def recognize_speech_from_mic(recognizer, microphone):
+    '''this method takes instance of Class Recognizer and Microphone'''
+
     if not isinstance(recognizer, sr.Recognizer):
         raise TypeError("`recognizer` must be `Recognizer` instance")
 
@@ -27,18 +29,3 @@ def recognize_speech_from_mic(recognizer, microphone):
         response["error"] = "Unable to recognize speech"
 
     return response
-
-'''
-if __name__ == "__main__":
-    
-    recognizer = sr.Recognizer()
-    microphone = sr.Microphone()
-    
-    
-    while True:
-        print("listening.....")
-        guess = recognize_speech_from_mic(recognizer, microphone)
-        print(guess["success"])
-        print("You said: {}".format(guess["transcription"]))
-'''
-
