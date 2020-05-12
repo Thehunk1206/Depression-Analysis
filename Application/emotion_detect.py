@@ -21,7 +21,6 @@ age = sys.argv[2]
 
 # =====================util functions=============================
 
-
 def load_model_objects():
     print("[ info ]Loading Cascade classifier.....")
     face_cascade = cv2.CascadeClassifier()

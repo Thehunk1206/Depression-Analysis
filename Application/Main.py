@@ -35,9 +35,9 @@ def prompt_questionaire(questionare_path):
 if __name__ == "__main__":
     name, age = getUserInfo()
 
-    process_detect_emotion = sp.Popen(["python3","emotion_detect.py",name,age])
-    process_speech_sentiment = sp.Popen(["python3","classify_speech.py",name,age])
+    #process_detect_emotion = sp.Popen(["python3","emotion_detect.py",name,age])
+    #process_speech_sentiment = sp.Popen(["python3","classify_speech.py",name,age])
     prompt_questionaire("assets/questionaire.txt")
-    process_detect_emotion.terminate()
-    process_speech_sentiment.terminate()
+    #process_detect_emotion.terminate()
+    #process_speech_sentiment.terminate()
 
