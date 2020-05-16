@@ -5,16 +5,6 @@ import plotly.express as px
 import plotly.figure_factory as ff
 
 
-import io
-
-s = io.StringIO()
-
-def getUserInfo(filename):
-    csv_sep = filename.split(".")
-    user_info = csv_sep[0].split(" ")
-    #user_info is a list containing name and age at pos 1 and 2
-    return user_info[1],user_info[2]
-
 @st.cache 
 def load_csv(file):
     return pd.read_csv(file)
@@ -56,6 +46,19 @@ def main():
 
             st.markdown("* Histogram")
             st.plotly_chart(hist_fig)
+    if module2_file is not None:
+        df2 = load_csv(module2_file)
+        st.markdown("## Module 2")
+        st.subheader("Visualizing response sentiment data")
+        
+        st.markdown("* Responses and Sentiment")
+        st.write(df2[["text","sentiment"]])
+        
+        sentiment_label = ["NEGATIVE","POSITIVE"]
+        sentiment_values = [df2[df2["sentiment"]=="NEGATIVE"]["sentiment"].count(),df2[df2["sentiment"]=="POSITIVE"]["sentiment"].count()]
+        pie_fig_sentiment = go.Figure(data=[go.Pie(labels=sentiment_label, values=sentiment_values, hole=.3)])
 
+        st.markdown("* Pie Chart")
+        st.plotly_chart(pie_fig_sentiment)
+        
 main()
-
