@@ -12,6 +12,9 @@
 
 ## screenshot of WebApp
 * module 1
+
 ![screenshot1](https://github.com/Thehunk1206/Depression-Analysis/blob/master/Sytem%20Designs/webapp2.png)
+
 * module 2
+
 ![screenshot2](https://github.com/Thehunk1206/Depression-Analysis/blob/master/Sytem%20Designs/webapp3.png)
