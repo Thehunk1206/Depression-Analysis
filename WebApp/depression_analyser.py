@@ -13,8 +13,8 @@ def main():
     st.title("Depression Analyzer")
     st.header("Visualize emotion data from CSV file")
 
-    module1_file = st.file_uploader("Upload Module1 file",type=['csv'])
-    module2_file = st.file_uploader("Upload Module2 file",type=['csv'])
+    module1_file = st.file_uploader("Upload Module1 file(csv file only)",type=['csv'])
+    module2_file = st.file_uploader("Upload Module2 file(csv file only)",type=['csv'])
 
     if module1_file  is not None:
         df = load_csv(module1_file)
