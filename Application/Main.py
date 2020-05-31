@@ -40,4 +40,3 @@ if __name__ == "__main__":
     prompt_questionaire("assets/questionaire.txt")
     #process_detect_emotion.terminate()
     #process_speech_sentiment.terminate()
-

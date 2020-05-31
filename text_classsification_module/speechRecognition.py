@@ -45,5 +45,5 @@ if __name__ == "__main__":
         guess = recognize_speech_from_mic(recognizer, microphone)
         print(guess["success"])
         print("You said: {}".format(guess["transcription"]))
-'''
 
+'''

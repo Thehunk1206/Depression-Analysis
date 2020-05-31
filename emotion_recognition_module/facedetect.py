@@ -9,15 +9,21 @@ import time
 import numpy as np
 
 face_cascade = cv2.CascadeClassifier()
-isLoaded= face_cascade.load('../cascade/haarcascade_frontalface_alt.xml')
-print(isLoaded)
+print("[info] Loading Cascade Classifier.....")
+isLoaded = face_cascade.load('../cascade/haarcascade_frontalface_alt.xml')
+if isLoaded:
+    print("[info] Cascade Classifier loaded")
 
+print("[info] loading Emotion recognition model....")
 model = load_model('emotion_recogtion.h5')
+print("[info] Model loaded")
 
 classes = ['Angry','Happy','Neutral','Sad','Surprise']
 
-
+print("[info] staring webcam.....")
 cap = cv2.VideoCapture(0)
+time.sleep(1)
+print("[info] Webcam started")
 
 while True:
     ret,frame = cap.read()
@@ -32,18 +38,21 @@ while True:
     
     for (x,y,w,h) in faces:
         cv2.rectangle(flipImage, (x, y), (x+w, y+h), (0, 255,0), 1)
+        
         roi_gray = grayFrame[y:y+w,x:x+h]
+        
         roi_gray = cv2.resize(roi_gray,(48,48))
+        
         img = image.img_to_array(roi_gray)
         img = np.expand_dims(img,axis=0)
+        
         img/=255
+        
         pred = model.predict(img)
+        
         emotion = classes[np.argmax(pred[0])]
         cv2.putText(flipImage,emotion,(x,y),cv2.FONT_HERSHEY_SIMPLEX,1,(0,255,0),2)
-        print(emotion)
-
-
-    #print("Detected {0} faces!".format(len(faces)))
+        
     cv2.imshow("face",flipImage)
 
     if cv2.waitKey(1) == ord('q'):
