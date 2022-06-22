@@ -1,6 +1,6 @@
 opencv_python==4.2.0.32
 pandas==1.0.1
-numpy==1.17.0
+numpy==1.22.0
 SpeechRecognition==3.8.1
 tensorflow==2.5.2
 pyttsx3==2.71
