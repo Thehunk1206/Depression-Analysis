@@ -1,5 +1,5 @@
 numpy==1.17.0
-tensorflow==2.5.2
+tensorflow==2.11.1
 SpeechRecognition==3.8.1
 opencv_python==4.2.0.32
 pandas==1.0.1
